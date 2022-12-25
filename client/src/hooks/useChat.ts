@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { io } from 'socket.io-client';
 import storage from '../utils/storage';
 import { TUser } from '../types/UserTypes';
+import { TMessage } from '../types/MessageType';
 
 export default function useChat() {
   // извлекаем данные пользователя из локального хранилища
@@ -48,12 +49,12 @@ export default function useChat() {
   }, []);
 
   // метод для отправки сообщения
-  const sendMessage: (message: string) => void = (message) => {
+  const sendMessage: (message: TMessage) => void = (message) => {
     socket.emit('message:add', message);
   };
 
   // метод для удаления сообщения
-  const removeMessage: (message: string) => void = (message) => {
+  const removeMessage: (message: TMessage) => void = (message) => {
     socket.emit('message:remove', message);
   };
 

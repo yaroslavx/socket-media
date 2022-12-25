@@ -1,10 +1,10 @@
 import { existsSync, mkdirSync } from 'fs';
 import multer from 'multer';
 import { dirname, join } from 'path';
-import { fileUrlToPath } from 'url';
+import { fileURLToPath } from 'url';
 
 // путь к текущей директории
-const _dirname = dirname(fileUrlToPath(import.meta.url));
+const _dirname = dirname(fileURLToPath(import.meta.url));
 
 const upload = multer({
   storage: multer.diskStorage({

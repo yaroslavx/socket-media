@@ -5,7 +5,7 @@ import onError from '../../utils/onError.js';
 // "хранилище" для сообщений
 const messages = {};
 
-export const messageHandlers = (io, socket) => {
+const messageHandlers = (io, socket) => {
   // извлекаем идентификатор комнаты
   const { roomId } = socket;
 
@@ -66,6 +66,8 @@ export const messageHandlers = (io, socket) => {
     );
 
     // обновляем список сообщений
-    updateMessageList()
+    updateMessageList();
   });
 };
+
+export default messageHandlers;
